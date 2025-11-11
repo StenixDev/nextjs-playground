@@ -4,7 +4,6 @@ import '../globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import logo from '../public/logo.png';
 import Menu from '../components/menu';
 
 const geistSans = Geist({
@@ -32,13 +31,13 @@ export default function RootLayout({
       <body className={`h-screen flex`}>
         {/* LEFT */}
 
-        <div className='w-1/6 md:w-[8%] lg:w-[16%] xl:w-[14%]  bg-red-500 p-4'>
+        <div className='w-1/6 md:w-[8%] lg:w-[16%] xl:w-[14%] '>
           <Link
             href='/'
             className='flex items-center justify-center lg:justify-start gap-2'
           >
             {' '}
-            <Image src={logo} width={32} height={32} alt='logo' />
+            <Image src='/logo.png' width={32} height={32} alt='logo' />
             <span className='hidden lg:block'>schl. mgt.</span>
           </Link>
 
