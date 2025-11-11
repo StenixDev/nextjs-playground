@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import Menu from '../components/menu';
+import Navbar from '../components/navbar';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -45,8 +46,9 @@ export default function RootLayout({
         </div>
 
         {/* RIGHT */}
-        <div className='w-5/6 md:w-[92%]  lg:w-[84%] xl:w-[86%] bg-blue-200'>
-          r
+        <div className='w-5/6 md:w-[92%]  lg:w-[84%] xl:w-[86%] bg-[#F7F8FA] overflow-scroll'>
+          <Navbar />
+          {children}
         </div>
       </body>
     </html>
