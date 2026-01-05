@@ -1,39 +1,16 @@
 'use client';
+import { submitForm } from '@/lib/actions';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import { z } from 'zod';
+import { useActionState } from 'react';
 
-// Define your schema
-const formSchema = z.object({
-  username: z.string().min(2, 'Name must be at least 2 characters'),
-});
-
-async function submitForm(formData: FormData) {
-  const data = {
-    username: formData.get('username'),
-  };
-
-  // Validate with Zod
-  const result = formSchema.safeParse(data);
-
-  console.log(result);
-
-  if (!result.success) {
-    return {
-      success: false,
-      errors: result.error.flatten().fieldErrors,
-    };
-  }
-
-  // Process validated data
-  const validatedData = result.data;
-  console.log('Valid data:', validatedData);
-}
+const initialState = { success: false, errors: null };
 
 function Form() {
+  const [state, formAction] = useActionState(submitForm, initialState);
   return (
-    <form action={submitForm}>
+    <form action={formAction}>
       <div className='grid w-full max-w-sm items-center gap-3'>
         <Label htmlFor='username'>Username</Label>
         <Input id='username' name='username' type='text' />
