@@ -6,17 +6,7 @@ const formSchema = z.object({
   username: z.string().min(2, 'Name must be at least 2 characters'),
 });
 
-export type FormState = {
-  success?: boolean;
-  errors?: {
-    username?: string[];
-  };
-};
-
-export async function submitForm(
-  prevState: FormState,
-  formData: FormData
-): Promise<FormState> {
+export async function submitForm(formData: FormData) {
   const data = {
     username: formData.get('username'),
   };
@@ -28,6 +18,8 @@ export async function submitForm(
       errors: result.error.flatten().fieldErrors,
     };
   }
+
+  console.log('submiting to the database', data.username);
 
   return { success: true };
 }
