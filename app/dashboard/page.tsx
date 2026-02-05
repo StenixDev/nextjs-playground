@@ -5,7 +5,7 @@ function page() {
     <div>
       <h1>Dashboard</h1>
 
-      <Link href={`/dashboard/reports`}>View Report</Link>
+      <Link href={`/profile`}>View Profile</Link>
     </div>
   );
 }
