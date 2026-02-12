@@ -1,12 +1,11 @@
 import Link from 'next/link';
 
-function page() {
+function Dashboard() {
   return (
     <div>
-      <h1>Dashboard</h1>
-
-      <Link href={`/profile`}>View Profile</Link>
+      Dashboard
+      <Link href={`/dashboard/stats`}>Stats</Link>
     </div>
   );
 }
-export default page;
+export default Dashboard;
