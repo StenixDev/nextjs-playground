@@ -55,3 +55,39 @@ export async function PUT(request, { params }) {
     });
   }
 }
+
+export async function PATCH(request, { params }) {
+  try {
+    const { id } = await params;
+    const userId = parseInt(id);
+    const body = await request.json();
+
+    const userIndex = users.findIndex((user) => user.id === userId);
+
+    if (userIndex === -1) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'user id not found',
+        },
+        { status: 404 },
+      );
+    }
+
+    users[userIndex] = {
+      ...users[userIndex],
+      ...body,
+      id: userId,
+    };
+
+    return NextResponse.json({
+      success: true,
+      data: users[userIndex],
+      message: 'user successfully updated/patched',
+    });
+  } catch (error) {
+    return NextResponse.json({
+      error: "can't update the user " + error,
+    });
+  }
+}
