@@ -91,3 +91,35 @@ export async function PATCH(request, { params }) {
     });
   }
 }
+
+export async function DELETE(request, { params }) {
+  try {
+    const { id } = await params;
+    const userId = parseInt(id);
+
+    const userIndex = users.findIndex((user) => user.id === userId);
+
+    if (userIndex === -1) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'user id not found',
+        },
+        { status: 404 },
+      );
+    }
+
+    const deletedUser = users[userIndex];
+    users.splice(userIndex, 1);
+
+    return NextResponse.json({
+      success: true,
+
+      message: ' User has been deleted',
+    });
+  } catch (error) {
+    return NextResponse.json({
+      error: "can't find the user " + error,
+    });
+  }
+}
