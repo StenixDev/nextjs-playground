@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { users } from '../route';
-import { success } from 'zod';
 
 export async function GET(request, { params }) {
   try {
