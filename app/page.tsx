@@ -1,3 +1,4 @@
+import NewUser from '@/components/new-user';
 import UsersList from '@/components/userslist';
 
 function Home() {
@@ -7,10 +8,9 @@ function Home() {
         Hello Tanstact Query
       </h1>
 
-      <div className='grid gap-6 md:grid-cols-2'>
-        <div className='space-y-6'>
-          <UsersList />
-        </div>
+      <div className=''>
+        <UsersList />
+        <NewUser />
       </div>
     </div>
   );

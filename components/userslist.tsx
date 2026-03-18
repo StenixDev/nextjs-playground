@@ -30,13 +30,15 @@ function UsersList() {
 
   return (
     <div>
-      <h1>UsersList</h1>
-      {users?.map((user) => (
-        <Card key={user.id} className='p-5 m-5'>
-          <h1>{user.name}</h1>
-          <span>{user.email}</span>
-        </Card>
-      ))}
+      <h1 className='text-3xl font-bold'>UserList</h1>
+      <div className='flex'>
+        {users?.map((user) => (
+          <Card key={user.id} className='p-5 m-5 w-xs'>
+            <h1>{user.name}</h1>
+            <span>{user.email}</span>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }
