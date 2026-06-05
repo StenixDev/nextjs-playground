@@ -1,18 +1,9 @@
-import NewUser from '@/components/new-user';
-import UsersList from '@/components/userslist';
+import { Button } from '@/components/ui/button';
 
-function Home() {
+export default function Home() {
   return (
-    <div className='container mx-auto p-6 max-w-4xl'>
-      <h1 className='text-3xl font-bold mb-8 text-center'>
-        Hello Tanstact Query
-      </h1>
-
-      <div className=''>
-        <UsersList />
-        <NewUser />
-      </div>
+    <div className='flex min-h-svh items-center justify-center'>
+      <Button>Click me</Button>
     </div>
   );
 }
-export default Home;
